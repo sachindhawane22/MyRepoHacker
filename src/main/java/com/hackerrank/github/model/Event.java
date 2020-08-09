@@ -1,12 +1,25 @@
 package com.hackerrank.github.model;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "event")
 public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "type")
     private String type;
+
+    @OneToOne
     private Actor actor;
+
+    @OneToOne
     private Repo repo;
+
+    @Column(name = "createdAt")
     private Timestamp createdAt;
 
     public Event() {
@@ -20,6 +33,7 @@ public class Event {
         this.createdAt = createdAt;
     }
 
+
     public Long getId() {
         return id;
     }
@@ -27,6 +41,7 @@ public class Event {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getType() {
         return type;
@@ -36,6 +51,7 @@ public class Event {
         this.type = type;
     }
 
+
     public Actor getActor() {
         return actor;
     }
@@ -44,6 +60,7 @@ public class Event {
         this.actor = actor;
     }
 
+
     public Repo getRepo() {
         return repo;
     }
@@ -51,6 +68,7 @@ public class Event {
     public void setRepo(Repo repo) {
         this.repo = repo;
     }
+
 
     public Timestamp getCreatedAt() {
         return createdAt;

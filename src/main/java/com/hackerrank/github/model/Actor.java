@@ -1,8 +1,19 @@
 package com.hackerrank.github.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "actor")
 public class Actor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "login" )
     private String login;
+
+    @Column(name = "avatar",nullable = false)
     private String avatar;
 
     public Actor() {
@@ -13,7 +24,8 @@ public class Actor {
         this.login = login;
         this.avatar = avatar;
     }
-    
+
+
     public Long getId() {
         return id;
     }
@@ -21,7 +33,8 @@ public class Actor {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
+
     public String getLogin() {
         return login;
     }
@@ -29,7 +42,8 @@ public class Actor {
     public void setLogin(String login) {
         this.login = login;
     }
-    
+
+
     public String getAvatar() {
         return avatar;
     }
